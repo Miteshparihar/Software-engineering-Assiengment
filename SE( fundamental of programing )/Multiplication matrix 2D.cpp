@@ -1,56 +1,53 @@
 #include<stdio.h>
 int main()
 {
-	int i,j, num_1[2][2],num_2[2][2],Multiplication[2][2];
-	printf("Enter 4 values of 1st array : - ");
-	for (i=0;i<2;i++)
+	int n,r,c,i,j,k,num1[2][2],num2[2][2],result[2][2];
+	printf("enter total number of row");
+	scanf("%d",&r);
+	printf("enter total number of col");
+	scanf("%d",&c);
+	printf("\nfirst array");
+	for(i=0;i<r;i++)
 	{
-		for (j=0;j<2;j++)
+		for(j=0;j<c;j++)
 		{
-			scanf("%d",&num_1[i][j]);
+			scanf("%d",&num1[i][j]);
 		}
 	}
-	printf("1st array:-\n");
-	for(i=0;i<2;i++)
+	printf("\n second array");
+	for(i=0;i<r;i++)
 	{
-		for(j=0;j<2;j++)
+		for(j=0;j<c;j++)
 		{
-			printf("%d\t",num_1[i][j]);
-		}
-			printf("\n");
-	}
-	printf("Enter 4 values of 2nd array : - ");
-	for (i=0;i<2;i++)
-	{
-		for (j=0;j<2;j++)
-		{
-			scanf("%d",&num_2[i][j]);
+			scanf("%d",&num2[i][j]);
 		}
 	}
-	printf("2nd array:-\n");
-	for(i=0;i<2;i++)
+	for(i=0;i<r;i++)
 	{
-		for(j=0;j<2;j++)
+		for(j=0;j<c;j++)
 		{
-			printf("%d\t",num_2[i][j]);
-		}
-			printf("\n");
+		result[i][j]=0;	
 	}
-	printf("Multiplication of  1st array and 2nd array ;\n");
-	for (i=0;i<2;i++)
+}
+	
+	for(i=0;i<r;i++)
 	{
-		for(j=0;j<2;j++)
+		for(j=0;j<c;j++)
 		{
-			Multiplication[i][j]=num_1[i][j]*num_2[i][j];
+	
+			for(k=0;k<c;k++)
+			{
+				result[i][j]+=num1[i][k]*num2[k][j];
+			}
 		}
 	}
-	for (i=0;i<2;i++)
+	printf("matrix multiplication\n");
+	for(i=0;i<r;i++)
 	{
-		for(j=0;j<2;j++)
+		for(j=0;j<c;j++)
 		{
-		  printf("%d\t",Multiplication[i][j]);
-		}
-		printf("\n");
+			printf("%d\t",result[i][j]);
+		}printf("\n");
 	}
 	return 0;
 }
